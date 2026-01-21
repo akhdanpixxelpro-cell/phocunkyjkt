@@ -386,56 +386,159 @@
         </div>
     </nav>
 
-    <header id="hero" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <span class="badge bg-secondary-beige text-dark mb-3 px-3 py-2 fw-bold">
-                        Coffee Shop
-                    </span>
+   <header id="hero" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
 
-                    <h1 class="hero-title text-light">
-                        WE ARE,<br>HUMAN &amp;<br>COFFEE
-                    </h1>
+            <!-- TEXT -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <span class="badge bg-secondary-beige text-dark mb-3 px-3 py-2 fw-bold">
+                    Coffee Shop
+                </span>
 
-                    <p class="hero-subtitle text-light">
-                        If you're always thinking about the next cup, fix it with code
-                        <strong>SANSO984</strong>. Our coffee products are guaranteed 100% natural.
-                    </p>
+                <h1 class="hero-title text-light">
+                    WE ARE,<br>HUMAN &amp;<br>COFFEE
+                </h1>
 
-                    <a href="explore.html" class="btn btn-custom shadow-lg">
-                        Explore More
-                    </a>
-                </div>
+                <p class="hero-subtitle text-light">
+                    If you're always thinking about the next cup, fix it with code
+                    <strong>SANSO984</strong>. Our coffee products are guaranteed 100% natural.
+                </p>
 
-               <div class="col-lg-6 text-center">
-  <div class="coffee-bag-wrapper">
-    <img 
-      src="img/1.avif"
-      srcset="img/1.avif 480w, img/1.avif 768w, img/1.avif 1200w"
-      sizes="(max-width: 768px) 90vw, 500px"
-      width="500"
-      height="500"
-      alt="Toffin Coffee Beans Speciality Sulawesi Toraja Packaging"
-      class="coffee-bag-img"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    >
-                        
-                        <div class="card position-absolute bottom-0 end-0 p-3 shadow-lg border-0 hero-product-card rounded">
-                            <span class="badge bg-dark mb-2 w-50">100% Arabika</span>
-                            <h2 class="h5 fw-bold m-0 text-dark">Toffin Coffee Beans</h2>
-                            <p class="small text-muted mb-3">Speciality Sulawesi Toraja</p>
-                            <button type="button" class="btn btn-sm btn-outline-dark w-100 fw-bold">
-                                Order Now
-                            </button>
-                        </div>
+                <a href="explore.html" class="btn btn-custom shadow-lg">
+                    Explore More
+                </a>
+            </div>
+
+            <!-- IMAGE -->
+            <div class="col-lg-6">
+                <div class="coffee-bag-wrapper">
+
+                    <img
+                        src="img/1.avif"
+                        srcset="img/1.avif 480w, img/1.avif 768w, img/1.avif 1200w"
+                        sizes="(max-width: 768px) 90vw, 500px"
+                        width="500"
+                        height="500"
+                        alt="Toffin Coffee Beans Speciality Sulawesi Toraja Packaging"
+                        class="coffee-bag-img"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
+                    >
+
+                    <!-- CARD -->
+                    <div class="hero-card">
+                        <span class="badge bg-dark mb-2">100% Arabika</span>
+                        <h2 class="h5 fw-bold m-0 text-dark">Toffin Coffee Beans</h2>
+                        <p class="small text-muted mb-3">Speciality Sulawesi Toraja</p>
+                        <button class="btn btn-sm btn-outline-dark w-100 fw-bold">
+                            Order Now
+                        </button>
                     </div>
+
                 </div>
             </div>
+
         </div>
-    </header>
+    </div>
+</header>
+
+<style>
+    /* WRAPPER ANTI CLS */
+.coffee-bag-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1; /* FIXED SPACE */
+}
+
+/* IMAGE */
+.coffee-bag-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* CARD */
+.hero-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+
+    .hero-card {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: 260px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 991.98px) {
+
+    .hero-card {
+        position: static;
+        margin-top: 16px;
+    }
+}
+/* ===== MOBILE STYLE ===== */
+@media (max-width: 991.98px) {
+
+  .hero-product-card-wrapper {
+    position: static;
+    margin-top: 1.25rem;
+    padding: 0 0.75rem;
+  }
+
+  .hero-product-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+    border-radius: 14px;
+    box-shadow: none;              /* HILANGKAN shadow berat */
+    border: 1px solid #eaeaea;     /* lebih clean */
+
+    background: #fff;
+  }
+
+  .hero-product-card .badge {
+    width: auto;
+    font-size: 0.7rem;
+    padding: 0.35em 0.6em;
+  }
+
+  .hero-product-card h2 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .hero-product-card p {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-product-card button {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .hero-product-card .badge {
+    margin-bottom: 0.4rem;
+    display: inline-block;
+  }
+}
+
+</style>
 
     <div class="marquee-strip" role="complementary" aria-label="Brand highlights">
         <div class="marquee-content">
