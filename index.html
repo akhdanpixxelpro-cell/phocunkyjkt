@@ -512,23 +512,57 @@ html, body {
         </div>
     </section>
 
-    <section id="about" class="split-section">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <div class="col-lg-6">
-                    <img src="img/tetng.avif" alt="Woman enjoying coffee" class="split-img" loading="lazy">
-                </div>
-                <div class="col-lg-6 split-content">
-                    <h2 class="text-light display-5 mb-4">EITHER YOU<br>OR COFFEE?</h2>
-                    <p class="text-white-50 mb-4">
-                        Single origin coffee means a single known geographical origin. Often the coffee is labeled, but a single farm or producer. It's coffee in its purest form.
-                    </p>
-                    <a href="blog.html" class="btn btn-custom align-self-start">Read More</a>
-                </div>
+    <section id="about" class="split-section" aria-labelledby="about-title">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+
+            <!-- IMAGE -->
+            <div class="col-lg-6">
+                <img
+                    src="img/tetng.avif"
+                    alt="Seorang wanita sedang menikmati secangkir kopi"
+                    class="split-img"
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
+                >
             </div>
+
+            <!-- CONTENT -->
+            <div class="col-lg-6 split-content">
+                <h2 id="about-title" class="text-light display-5 mb-4">
+                    EITHER YOU<br>OR COFFEE?
+                </h2>
+
+                <p class="text-white-50 mb-4">
+                    Single origin coffee means a single known geographical origin.
+                    Often the coffee is labeled from a single farm or producer,
+                    offering coffee in its purest form.
+                </p>
+
+                <a
+                    href="blog.html"
+                    class="btn btn-custom align-self-start"
+                    aria-label="Read more about single origin coffee"
+                >
+                    Read More
+                </a>
+            </div>
+
         </div>
-    </section>
-    
+    </div>
+</section>
+
+    <style>
+        .split-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+    </style>
 
     <section class="educational-section">
   <div class="container">
