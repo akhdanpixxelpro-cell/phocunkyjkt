@@ -385,7 +385,31 @@ html, body {
 
                 <div class="col-lg-6 text-center position-relative">
                     <div class="coffee-bag-wrapper">
-                        <img src="img/1.avif" alt="Toffin Coffee Beans Speciality Sulawesi Toraja" class="coffee-bag-img rounded" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); height: 500px; object-fit: contain;">
+                        <img
+  src="img/1.avif"
+  srcset="img/1.avif 480w, img/1.avif 768w, img/1.avif 1200w"
+  sizes="(max-width: 768px) 90vw, 500px"
+  width="500"
+  height="500"
+  alt="Toffin Coffee Beans Speciality Sulawesi Toraja"
+  class="coffee-bag-img rounded"
+  loading="lazy"
+  decoding="async"
+>
+
+<style>
+    .coffee-bag-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+
+  /* Gradient bawah TANPA mask-image */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 80%, #fff 100%);
+}
+
+</style>
                         
                         <div class="card position-absolute bottom-0 end-0 p-3 shadow-lg border-0"
      style="width: 250px; background-color: var(--secondary-beige);"
@@ -524,40 +548,99 @@ html, body {
             </div>
 
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                             <img src="img/ko1.jpg" alt="Toffin Coffee Beans" class="product-img">
-                        </div>
-                        <h5 class="text-light mt-3">Speciality Sulawesi Toraja</h5>
-                        <p class="text-accent fw-bold">IDR 85.000</p>
-                        <button class="btn btn-sm btn-outline-light">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                             <div class="badge bg-warning text-dark position-absolute top-0 start-0 m-3">Best Seller</div>
-                            <img src="img/ko2.avif" alt="Kahwa Coffee Roasters" class="product-img">
-                        </div>
-                        <h5 class="text-light mt-3">Kahwa Coffee Espresso Blend</h5>
-                        <p class="text-accent fw-bold">IDR 95.000</p>
-                        <button class="btn btn-sm btn-outline-light">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="img/ko3.avif" alt="Velvet Sulawesi Toraja" class="product-img">
-                        </div>
-                        <h5 class="text-light mt-3">Velvet Sulawesi Toraja</h5>
-                        <p class="text-accent fw-bold">IDR 90.000</p>
-                        <button class="btn btn-sm btn-outline-light">Add to Cart</button>
-                    </div>
-                </div>
+  <!-- PRODUCT 1 -->
+  <div class="col-md-4 mb-4">
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img
+          src="img/ko1.jpg"
+          srcset="img/ko1.jpg 480w, img/ko1.jpg 768w"
+          sizes="(max-width: 768px) 90vw, 300px"
+          width="300"
+          height="300"
+          alt="Toffin Coffee Beans Speciality Sulawesi Toraja"
+          class="product-img"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <h5 class="text-light mt-3">Speciality Sulawesi Toraja</h5>
+      <p class="text-accent fw-bold">IDR 85.000</p>
+      <button class="btn btn-sm btn-outline-light">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="col-md-4 mb-4">
+    <div class="product-card">
+      <div class="product-img-wrapper position-relative">
+        <span class="badge bg-warning text-dark product-badge">Best Seller</span>
+        <img
+          src="img/ko2.avif"
+          srcset="img/ko2.avif 480w, img/ko2.avif 768w"
+          sizes="(max-width: 768px) 90vw, 300px"
+          width="300"
+          height="300"
+          alt="Kahwa Coffee Espresso Blend"
+          class="product-img"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <h5 class="text-light mt-3">Kahwa Coffee Espresso Blend</h5>
+      <p class="text-accent fw-bold">IDR 95.000</p>
+      <button class="btn btn-sm btn-outline-light">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="col-md-4 mb-4">
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img
+          src="img/ko3.avif"
+          srcset="img/ko3.avif 480w, img/ko3.avif 768w"
+          sizes="(max-width: 768px) 90vw, 300px"
+          width="300"
+          height="300"
+          alt="Velvet Sulawesi Toraja Coffee Beans"
+          class="product-img"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <h5 class="text-light mt-3">Velvet Sulawesi Toraja</h5>
+      <p class="text-accent fw-bold">IDR 90.000</p>
+      <button class="btn btn-sm btn-outline-light">Add to Cart</button>
+    </div>
+  </div>
+</div>
             </div>
         </div>
     </section>
+
+    <style>
+        .product-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* CLS = 0 */
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+    </style>
 
     <section class="offer-section">
         <div class="container">
