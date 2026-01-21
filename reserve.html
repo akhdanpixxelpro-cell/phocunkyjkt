@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reservasi meja di Phocinky Coffee. Nikmati kopi terbaik tanpa antri. Book your table now.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e392a">
+    
+    <title>Reservation - Phocinky Coffee</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- COPY STYLE DARI HALAMAN UTAMA AGAR KONSISTEN --- */
+        :root {
+            --primary-green: #1e392a;
+            --secondary-beige: #f5ebd6;
+            --accent-orange: #e89f43;
+            --text-light: #ffffff;
+            --text-dark: #2c2c2c;
+        }
+
+        body { font-family: 'Lato', sans-serif; background-color: var(--secondary-beige); }
+        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+
+        /* Navbar Style */
+        .navbar { padding: 20px 0; background-color: var(--primary-green); }
+        .navbar-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: white !important; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; margin: 0 10px; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-orange) !important; }
+        .text-accent { color: var(--accent-orange); }
+
+        /* Page Header */
+        .page-header {
+            background-color: var(--primary-green);
+            padding: 60px 0 40px;
+            text-align: center;
+            color: white;
+            margin-bottom: 0;
+        }
+
+        /* Form Styling */
+        .reserve-container {
+            margin-top: -30px; /* Overlap effect */
+            margin-bottom: 80px;
+            background: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-custom {
+            border: 1px solid #ddd;
+            border-radius: 0;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+        }
+        .form-custom:focus {
+            border-color: var(--primary-green);
+            background-color: #fff;
+            box-shadow: none;
+            outline: none;
+        }
+        
+        .btn-custom {
+            background-color: var(--accent-orange);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: none;
+            transition: all 0.3s;
+        }
+        .btn-custom:hover { background-color: #c7832f; color: white; }
+
+        /* Footer (Sama persis) */
+        footer { background-color: #15291e; color: #aaa; padding: 60px 0 20px; font-size: 0.9rem; margin-top: auto;}
+        footer h5 { color: white; margin-bottom: 20px; }
+        footer a { color: #aaa; text-decoration: none; }
+        footer a:hover { color: var(--accent-orange); }
+
+        /* Floating Button (WA Only for this page) */
+        .fab-wa {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.5rem; text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000; transition: transform 0.3s;
+        }
+        .fab-wa:hover { transform: scale(1.1); color: white; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Ph<span class="text-accent">o</span>cinky</a>
+            <button class="navbar-toggler bg-secondary-beige" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="find.html">Find Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="beans.html">Beans Coffee</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Table Reservation</h1>
+            <p class="text-white-50">Secure your spot. Enjoy the coffee.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row g-0 reserve-container">
+            
+            <div class="col-lg-5 d-none d-lg-block position-relative">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800" alt="Coffee Shop Interior" class="w-100 h-100 object-fit-cover" style="min-height: 600px;">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary-green opacity-50"></div>
+                <div class="position-absolute bottom-0 start-0 p-5 text-white">
+                    <h3 class="mb-3">Opening Hours</h3>
+                    <ul class="list-unstyled mb-0" style="font-family: 'Lato';">
+                        <li class="mb-2 d-flex justify-content-between"><span>Mon - Fri</span> <span>08:00 - 22:00</span></li>
+                        <li class="d-flex justify-content-between"><span>Sat - Sun</span> <span>07:00 - 23:00</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-7 bg-white p-5">
+                <div class="mb-4 text-center text-lg-start">
+                    <span class="text-accent fw-bold text-uppercase small">Reservation Form</span>
+                    <h2 class="fw-bold mt-2">Book A Table</h2>
+                </div>
+
+                <form onsubmit="sendToWhatsapp(event)">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">FULL NAME</label>
+                            <input type="text" id="resName" class="form-control form-custom" placeholder="Your Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">PHONE NUMBER</label>
+                            <input type="tel" id="resPhone" class="form-control form-custom" placeholder="08..." required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">DATE</label>
+                            <input type="date" id="resDate" class="form-control form-custom" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">TIME</label>
+                            <input type="time" id="resTime" class="form-control form-custom" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold text-muted">NUMBER OF GUESTS</label>
+                            <select id="resGuests" class="form-select form-custom">
+                                <option value="2 People">2 People</option>
+                                <option value="3 People">3 People</option>
+                                <option value="4 People">4 People</option>
+                                <option value="More than 4">More than 4</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold text-muted">SPECIAL REQUEST (OPTIONAL)</label>
+                            <textarea id="resNotes" class="form-control form-custom" rows="3" placeholder="Smoking area, near window, etc."></textarea>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-custom w-100 py-3">CONFIRM BOOKING</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="text-center text-muted mt-3 small">
+                    <i class="fas fa-info-circle me-1"></i> Your reservation details will be sent via WhatsApp.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center text-lg-start footer-phocinky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Phocinky</h5>
+                <p>
+                    We deliver the best coffee experience from the farm to your cup.
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Help Center</h5>
+                <ul class="list-unstyled">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="team.html">Terms & Conditions</a></li>
+                    <li><a href="explore.html">Buy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Our Partner</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Toffin Indonesia</a></li>
+                    <li><a href="#">Farmers Association</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li><a href="mailto:support@phocinky.com">support@phocinky.com</a></li>
+                    <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
+                    <li class="mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3 copyright">
+        © 2024 Phocinky Coffee. All rights reserved.
+    </div>
+</footer>
+
+
+    <a href="https://wa.me/6281234567890" target="_blank" class="fab-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            const name = document.getElementById('resName').value;
+            const phone = document.getElementById('resPhone').value;
+            const date = document.getElementById('resDate').value;
+            const time = document.getElementById('resTime').value;
+            const guests = document.getElementById('resGuests').value;
+            const notes = document.getElementById('resNotes').value;
+
+            const adminPhone = "6281234567890"; // Ganti nomor admin disini
+
+            const message = `*NEW RESERVATION*%0A%0A` +
+                            `👤 Name: ${name}%0A` +
+                            `📞 Phone: ${phone}%0A` +
+                            `📅 Date: ${date}%0A` +
+                            `⏰ Time: ${time}%0A` +
+                            `👥 Guests: ${guests}%0A` +
+                            `📝 Notes: ${notes ? notes : '-'}`;
+
+            window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>

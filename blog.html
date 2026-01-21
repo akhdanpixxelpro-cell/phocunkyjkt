@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phocinky Blog - Tips menyeduh kopi, info biji kopi Toraja, dan berita terbaru seputar dunia kopi.">
+    <meta name="robots" content="index, follow">
+    <title>Blog & News - Phocinky Coffee</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #1e392a;
+            --secondary-beige: #f5ebd6;
+            --accent-orange: #e89f43;
+            --text-dark: #2c2c2c;
+        }
+
+        body { font-family: 'Lato', sans-serif; background-color: #fcf9f2; color: var(--text-dark); }
+        h1, h2, h3, h5 { font-family: 'Playfair Display', serif; }
+
+        /* Navbar Custom */
+        .navbar { background-color: var(--primary-green) !important; padding: 15px 0; }
+        .navbar-brand { font-family: 'Playfair Display', serif; font-weight: 700; color: white !important; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; margin: 0 10px; }
+        .nav-link:hover { color: var(--accent-orange) !important; }
+
+        /* Search Section */
+        .search-section { background-color: var(--primary-green); padding: 40px 0; color: white; }
+        .search-box {
+            background: white; padding: 10px; border-radius: 5px;
+            display: flex; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .search-box input { border: none; flex-grow: 1; padding: 10px; outline: none; }
+        .btn-search { background: var(--accent-orange); color: white; border: none; padding: 10px 25px; font-weight: bold; }
+
+        /* Blog Card Style */
+        .blog-card {
+            background: white; border: none; transition: transform 0.3s;
+            height: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .blog-card:hover { transform: translateY(-8px); }
+        .blog-img-wrapper { height: 200px; overflow: hidden; position: relative; }
+        .blog-img { width: 100%; height: 100%; object-fit: cover; }
+        .category-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: var(--accent-orange); color: white;
+            padding: 5px 12px; font-size: 0.75rem; font-weight: bold;
+        }
+        .blog-content { padding: 25px; }
+        .blog-date { font-size: 0.8rem; color: #888; margin-bottom: 10px; display: block; }
+        .blog-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: var(--primary-green); }
+        .blog-title a { text-decoration: none; color: inherit; }
+        .blog-title a:hover { color: var(--accent-orange); }
+
+        /* Footer */
+        footer { background: var(--primary-green); color: white; padding: 60px 0 20px; }
+        footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        footer a:hover { color: var(--accent-orange); }
+
+        /* Floating WA */
+        .fab-wa {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px; background: #25D366;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-phocinky">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            Ph<span class="text-accent">o</span>cinky
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarMain" aria-controls="navbarMain"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="find-store.html">Find Store</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="beans-coffee.html">Beans Coffee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reserve.html">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-none d-lg-block">
+            <a href="#" class="nav-link login-link">Login | Register</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* ============================= */
+/* PHOCINKY NAVBAR */
+/* ============================= */
+
+:root {
+    --primary-green: #1e392a;
+    --accent-orange: #e89f43;
+}
+
+.navbar-phocinky {
+    padding: 18px 0;
+    background: transparent;
+    transition: background .3s, box-shadow .3s;
+}
+
+.navbar-phocinky.scrolled {
+    background-color: var(--primary-green);
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff !important;
+}
+
+.text-accent {
+    color: var(--accent-orange);
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255,255,255,.85) !important;
+    font-size: .9rem;
+    text-transform: uppercase;
+    margin: 0 12px;
+    transition: color .3s;
+}
+
+.navbar-nav .nav-link:hover,
+.login-link:hover {
+    color: var(--accent-orange) !important;
+}
+
+.login-link {
+    color: #fff !important;
+    font-size: .9rem;
+}
+
+/* Mobile */
+.navbar-toggler {
+    border: none;
+    background: #f5ebd6;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0);
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+</style>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0 text-center text-md-start">
+                    <h1 class="display-5 fw-bold">Journal & News</h1>
+                    <p class="text-white-50">Explore coffee culture, brewing guides, and our journey.</p>
+                </div>
+                <div class="col-md-6">
+                    <form action="#" class="search-box">
+                        <input type="text" id="blogSearch" placeholder="Search articles...">
+                        <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+       <div class="row g-4">
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Brewing Guide</span>
+                <img src="img/Teknik.jpg" class="blog-img" alt="Manual Brew Guide">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 20, 2024</span>
+                <h3 class="blog-title"><a href="#">5 Rahasia Menyeduh V60 yang Sempurna di Rumah</a></h3>
+                <p class="text-muted small">Pelajari teknik pouring dan suhu air ideal untuk mendapatkan cita rasa kopi yang clean...</p>
+                <a href="a1.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Coffee Facts</span>
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600" class="blog-img" alt="Toraja Coffee">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 18, 2024</span>
+                <h3 class="blog-title"><a href="#">Mengenal Karakter Biji Kopi Sulawesi Toraja</a></h3>
+                <p class="text-muted small">Mengapa Kopi Toraja menjadi salah satu primadona di pasar internasional? Simak ulasannya...</p>
+                <a href="a2.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Store Update</span>
+                <img src="img/New Look.jpg" class="blog-img" alt="Phocinky Store">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 15, 2024</span>
+                <h3 class="blog-title"><a href="#">New Look: Phocinky Malang Kini Hadir Lebih Nyaman</a></h3>
+                <p class="text-muted small">Kami baru saja merenovasi area outdoor untuk memberikan suasana workspace yang lebih produktif...</p>
+                <a href="a3.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Coffee Facts</span>
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600" class="blog-img" alt="Espresso">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 12, 2024</span>
+                <h3 class="blog-title"><a href="#">Beda Espresso Blend vs Single Origin</a></h3>
+                <p class="text-muted small">Mana yang lebih cocok untuk kopi susu? Jangan sampai salah pilih biji untuk espresso Anda...</p>
+                <a href="a4.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Brewing Guide</span>
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600" class="blog-img" alt="Cold Brew">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 10, 2024</span>
+                <h3 class="blog-title"><a href="#">Cara Membuat Cold Brew Segar di Rumah</a></h3>
+                <p class="text-muted small">Tanpa alat mahal, Anda bisa membuat konsentrat cold brew yang awet hingga 2 minggu...</p>
+                <a href="a5.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Store Update</span>
+                <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=600" class="blog-img" alt="Eco Friendly">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 05, 2024</span>
+                <h3 class="blog-title"><a href="#">Komitmen Phocinky untuk Zero Waste Movement</a></h3>
+                <p class="text-muted small">Dapatkan diskon Rp2.000 setiap membawa tumblr sendiri ke outlet kami...</p>
+                <a href="a6.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Brewing Guide</span>
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600" class="blog-img" alt="French Press">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">January 03, 2024</span>
+                <h3 class="blog-title"><a href="#">Teknik French Press agar Tidak Pahit</a></h3>
+                <p class="text-muted small">Kesalahan umum saat menggunakan French Press dan cara mengontrol rasio kopi...</p>
+                <a href="a7.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Coffee Facts</span>
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600" class="blog-img" alt="Arabica vs Robusta">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">December 30, 2023</span>
+                <h3 class="blog-title"><a href="#">Arabica vs Robusta: Mana Favoritmu?</a></h3>
+                <p class="text-muted small">Perbedaan rasa, kafein, dan karakter body antara Arabica dan Robusta...</p>
+                <a href="a8.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <article class="blog-card">
+            <div class="blog-img-wrapper">
+                <span class="category-badge">Store Update</span>
+                <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=600" class="blog-img" alt="Latte Art Class">
+            </div>
+            <div class="blog-content">
+                <span class="blog-date">December 28, 2023</span>
+                <h3 class="blog-title"><a href="#">Latte Art Class di Phocinky Malang</a></h3>
+                <p class="text-muted small">Workshop terbatas untuk pemula yang ingin belajar basic latte art...</p>
+                <a href="a9.html" class="btn btn-link p-0 text-accent fw-bold text-decoration-none">Read More →</a>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+
+            
+
+        </div>
+    </section>
+
+    <script>
+document.getElementById('blogSearch').addEventListener('keyup', function () {
+    const keyword = this.value.toLowerCase();
+    const articles = document.querySelectorAll('.blog-card');
+
+    articles.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.parentElement.style.display = text.includes(keyword) ? '' : 'none';
+    });
+});
+</script>
+
+
+    <style>
+        /* =========================
+   GLOBAL RAPAPIHAN
+========================= */
+section {
+    overflow-x: hidden;
+}
+
+.container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* =========================
+   SEARCH SECTION
+========================= */
+.search-section {
+    padding: 80px 0 60px;
+}
+
+.search-section h1 {
+    line-height: 1.2;
+}
+
+.search-box {
+    max-width: 520px;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .search-section {
+        padding: 60px 0 40px;
+        text-align: center;
+    }
+
+    .search-box {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+section .d-flex.flex-wrap {
+    gap: 12px;
+}
+
+section .btn.rounded-pill {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+}
+
+/* =========================
+   BLOG GRID
+========================= */
+.row.g-4 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 2rem;
+}
+
+/* =========================
+   BLOG CARD
+========================= */
+.blog-card {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.blog-img-wrapper {
+    height: 220px;
+}
+
+.blog-content {
+    padding: 22px;
+}
+
+.blog-title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width: 576px) {
+
+    .blog-img-wrapper {
+        height: 200px;
+    }
+
+    .blog-content {
+        padding: 18px;
+    }
+
+    .blog-title {
+        font-size: 1.05rem;
+    }
+
+    .blog-date {
+        font-size: 0.75rem;
+    }
+
+    section.py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+    </style>
+
+    <footer class="text-center text-lg-start footer-phocinky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Phocinky</h5>
+                <p>
+                    We deliver the best coffee experience from the farm to your cup.
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Help Center</h5>
+                <ul class="list-unstyled">
+                    <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="team.html">Terms & Conditions</a></li>
+                        <li><a href="explore.html">Buy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Our Partner</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Toffin Indonesia</a></li>
+                    <li><a href="#">Farmers Association</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li><a href="mailto:support@phocinky.com">support@phocinky.com</a></li>
+                    <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
+                    <li class="mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3 copyright">
+        © 2024 Phocinky Coffee. All rights reserved.
+    </div>
+</footer>
+
+<style>
+    .footer-phocinky {
+    background-color: #15291e;
+    color: #aaa;
+    padding: 60px 0 0;
+    font-size: .9rem;
+}
+
+.footer-phocinky h5 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-phocinky a {
+    color: #aaa;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color .3s;
+}
+
+.footer-phocinky a:hover {
+    color: #e89f43;
+}
+
+.footer-phocinky i {
+    font-size: 1.2rem;
+}
+
+.footer-phocinky .copyright {
+    background-color: rgba(0,0,0,.2);
+    margin-top: 30px;
+}
+/* === FIX MOBILE GOYANG (CSS ONLY) === */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+/* Hindari elemen melebar di mobile */
+* {
+    box-sizing: border-box;
+}
+
+/* Fix Bootstrap row overflow */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Navbar aman di mobile */
+.navbar,
+.navbar .container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Search form flex overflow */
+.search-box {
+    width: 100%;
+    max-width: 100%;
+}
+
+.search-box input {
+    min-width: 0;
+}
+
+/* Floating button tidak dorong layout */
+.fab-wa {
+    right: 20px;
+    bottom: 20px;
+    max-width: 50px;
+}
+
+/* Gambar & media tidak melebar */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
+
+<div class="fab-container">
+    <button id="btnScrollTop" class="fab-btn bg-scroll" title="Kembali ke Atas">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <a href="https://wa.me/6281234567890" target="_blank" class="fab-btn bg-whatsapp" title="Chat via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<style>
+    /* Rasio Gambar 4:3 untuk Section About */
+.split-img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Memaksa gambar tetap 4:3 */
+    object-fit: cover;   /* Memastikan gambar terpotong rapi, tidak gepeng */
+    display: block;
+}
+
+/* Container untuk FAB */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style Umum Tombol FAB */
+.fab-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.fab-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Warna Khusus */
+.bg-whatsapp { background-color: #25D366; }
+.bg-scroll { background-color: #e89f43; display: none; } /* Tersembunyi di awal */
+</style>
+
+<script>
+    const btnScroll = document.getElementById("btnScrollTop");
+
+    window.onscroll = function() {
+        // Jika scroll lebih dari 400px, munculkan tombol scroll top
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            btnScroll.style.display = "flex";
+        } else {
+            btnScroll.style.display = "none";
+        }
+    };
+
+    // Fungsi klik scroll ke atas
+    btnScroll.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Store | Phocinky Coffee</title>
+    <meta name="description" content="Temukan store Phocinky Coffee terdekat dari lokasi Anda.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <style>
+        :root {
+            --primary-green: #1e392a;
+            --secondary-beige: #f5ebd6;
+            --accent-orange: #e89f43;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--secondary-beige);
+        }
+
+        /* HEADER */
+        .page-header {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        /* SEARCH */
+        .store-search input {
+            border-radius: 0;
+        }
+
+        /* STORE CARD */
+        .store-card {
+            border: none;
+            border-radius: 0;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .store-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.15);
+        }
+
+        .store-card i {
+            color: var(--primary-green);
+        }
+
+        /* MAP */
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border: 0;
+        }
+
+        /* MOBILE SAFE */
+        html, body {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-phocinky">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            Ph<span class="text-accent">o</span>cinky
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarMain" aria-controls="navbarMain"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="find.html">Find Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="beans.html">Beans Coffee</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="d-none d-lg-block">
+            <a href="#" class="nav-link login-link">Login | Register</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* ============================= */
+/* PHOCINKY NAVBAR */
+/* ============================= */
+
+:root {
+    --primary-green: #1e392a;
+    --accent-orange: #e89f43;
+}
+
+.navbar-phocinky {
+    padding: 18px 0;
+    background: transparent;
+    transition: background .3s, box-shadow .3s;
+}
+
+.navbar-phocinky.scrolled {
+    background-color: var(--primary-green);
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff !important;
+}
+
+.text-accent {
+    color: var(--accent-orange);
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255,255,255,.85) !important;
+    font-size: .9rem;
+    text-transform: uppercase;
+    margin: 0 12px;
+    transition: color .3s;
+}
+
+.navbar-nav .nav-link:hover,
+.login-link:hover {
+    color: var(--accent-orange) !important;
+}
+
+.login-link {
+    color: #fff !important;
+    font-size: .9rem;
+}
+
+/* Mobile */
+.navbar-toggler {
+    border: none;
+    background: #f5ebd6;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0);
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+</style>
+
+<script>
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar-phocinky");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+
+    <!-- HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Find Our Store</h1>
+            <p class="text-white-50">Temukan Phocinky Coffee terdekat dari lokasi Anda</p>
+        </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6 mx-auto">
+                    <div class="input-group store-search">
+                        <input type="text" class="form-control" placeholder="Cari kota atau area...">
+                        <button class="btn btn-dark rounded-0"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- STORE LIST -->
+                <div class="col-lg-5 mb-4">
+                    <div class="card store-card mb-3 p-3">
+                        <h5 class="fw-bold">Phocinky Coffee Jakarta</h5>
+                        <p class="small mb-1"><i class="fas fa-location-dot me-2"></i>Jl. Sudirman No. 88, Jakarta</p>
+                        <p class="small mb-2"><i class="fas fa-clock me-2"></i>08.00 - 22.00</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-0">View on Map</a>
+                    </div>
+
+                    <div class="card store-card mb-3 p-3">
+                        <h5 class="fw-bold">Phocinky Coffee Bandung</h5>
+                        <p class="small mb-1"><i class="fas fa-location-dot me-2"></i>Jl. Dago No. 21, Bandung</p>
+                        <p class="small mb-2"><i class="fas fa-clock me-2"></i>09.00 - 23.00</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-0">View on Map</a>
+                    </div>
+
+                    <div class="card store-card p-3">
+                        <h5 class="fw-bold">Phocinky Coffee Surabaya</h5>
+                        <p class="small mb-1"><i class="fas fa-location-dot me-2"></i>Jl. Tunjungan No. 5, Surabaya</p>
+                        <p class="small mb-2"><i class="fas fa-clock me-2"></i>08.00 - 21.00</p>
+                        <a href="#" class="btn btn-sm btn-outline-dark rounded-0">View on Map</a>
+                    </div>
+                </div>
+
+                <!-- MAP -->
+                <div class="col-lg-7">
+                    <div class="map-wrapper shadow">
+                        <iframe src="https://www.google.com/maps?q=Jakarta&output=embed" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-lg-start footer-phocinky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Phocinky</h5>
+                <p>
+                    We deliver the best coffee experience from the farm to your cup.
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Help Center</h5>
+                <ul class="list-unstyled">
+                     <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="team.html">Terms & Conditions</a></li>
+                        <li><a href="explore.html">Buy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Our Partner</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Toffin Indonesia</a></li>
+                    <li><a href="#">Farmers Association</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li><a href="mailto:support@phocinky.com">support@phocinky.com</a></li>
+                    <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
+                    <li class="mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3 copyright">
+        © 2024 Phocinky Coffee. All rights reserved.
+    </div>
+</footer>
+
+<style>
+    .footer-phocinky {
+    background-color: #15291e;
+    color: #aaa;
+    padding: 60px 0 0;
+    font-size: .9rem;
+}
+
+.footer-phocinky h5 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-phocinky a {
+    color: #aaa;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color .3s;
+}
+
+.footer-phocinky a:hover {
+    color: #e89f43;
+}
+
+.footer-phocinky i {
+    font-size: 1.2rem;
+}
+
+.footer-phocinky .copyright {
+    background-color: rgba(0,0,0,.2);
+    margin-top: 30px;
+}
+
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

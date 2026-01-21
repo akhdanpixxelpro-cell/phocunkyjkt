@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pelajari teknik manual brew V60 untuk hasil kopi Toraja yang clean dan aromatik. Panduan lengkap bagi pemula.">
+    <title>Teknik Manual Brew V60: Panduan Lengkap Kopi Toraja | Phocinky Blog</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #1e392a;
+            --secondary-beige: #f5ebd6;
+            --accent-orange: #e89f43;
+            --text-dark: #2c2c2c;
+        }
+
+        body { font-family: 'Lato', sans-serif; line-height: 1.8; color: var(--text-dark); background-color: #fff; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-green); }
+
+        /* Navbar */
+        .navbar { background-color: var(--primary-green) !important; padding: 15px 0; }
+        .navbar-brand { font-family: 'Playfair Display', serif; font-weight: 700; color: white !important; }
+
+        /* Article Styles */
+        .article-header { padding: 60px 0; background: #f8f9fa; margin-bottom: 40px; }
+        .main-article-img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+        .img-caption { font-size: 0.85rem; color: #666; text-align: center; margin-bottom: 30px; font-style: italic; }
+        
+        /* Table of Contents */
+        .toc-box { background: var(--secondary-beige); border-left: 4px solid var(--accent-orange); padding: 15px; margin: 30px 0; }
+        .toc-title { cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .toc-list { margin-top: 10px; display: none; } /* Hidden by default */
+        .toc-list ul { padding-left: 20px; list-style-type: decimal; }
+        .toc-list a { color: var(--primary-green); text-decoration: none; }
+
+        /* Quote & Baca Juga */
+        blockquote { border-left: 5px solid var(--accent-orange); padding: 20px 30px; font-style: italic; font-size: 1.2rem; background: #fff8eb; margin: 40px 0; }
+        .baca-juga { border-top: 2px solid #eee; border-bottom: 2px solid #eee; padding: 15px 0; margin: 30px 0; font-weight: bold; }
+        .baca-juga a { color: var(--accent-orange); text-decoration: none; }
+
+        /* FAQ */
+        .faq-section { background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 50px; }
+
+        /* Author Profile */
+        .author-box { border: 1px solid #eee; padding: 25px; border-radius: 10px; display: flex; align-items: center; gap: 20px; margin: 40px 0; }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+
+        /* Social Share */
+        .share-btn-container { display: flex; gap: 10px; margin-bottom: 50px; }
+        .share-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+        .share-fb { background: #3b5998; }
+        .share-tw { background: #1da1f2; }
+        .share-wa { background: #25d366; }
+        .share-btn:hover { opacity: 0.8; transform: scale(1.1); color: white; }
+
+        /* FABs */
+        .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+        .btn-fab { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        #scrollTop { background: var(--accent-orange); display: none; }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-phocinky">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            Ph<span class="text-accent">o</span>cinky
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarMain" aria-controls="navbarMain"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+               <li class="nav-item"><a class="nav-link" href="find.html">Find Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="beans.html">Beans Coffee</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="d-none d-lg-block">
+            <a href="#" class="nav-link login-link">Login | Register</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* ============================= */
+/* PHOCINKY NAVBAR */
+/* ============================= */
+
+:root {
+    --primary-green: #1e392a;
+    --accent-orange: #e89f43;
+}
+
+.navbar-phocinky {
+    padding: 18px 0;
+    background: transparent;
+    transition: background .3s, box-shadow .3s;
+}
+
+.navbar-phocinky.scrolled {
+    background-color: var(--primary-green);
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff !important;
+}
+
+.text-accent {
+    color: var(--accent-orange);
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255,255,255,.85) !important;
+    font-size: .9rem;
+    text-transform: uppercase;
+    margin: 0 12px;
+    transition: color .3s;
+}
+
+.navbar-nav .nav-link:hover,
+.login-link:hover {
+    color: var(--accent-orange) !important;
+}
+
+.login-link {
+    color: #fff !important;
+    font-size: .9rem;
+}
+
+/* Mobile */
+.navbar-toggler {
+    border: none;
+    background: #f5ebd6;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0);
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+</style>
+
+   <header class="article-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <span class="badge bg-success mb-3">Brewing Guide</span>
+                <h1 class="display-5 fw-bold">Beda Espresso Blend vs Single Origin</h1>
+                <p class="text-muted mt-3">Dipublikasikan pada 21 Januari 2026 • 5 Menit Membaca</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600" class="main-article-img" alt="Penyeduhan V60">
+            <p class="img-caption">Proses pouring air pada kertas filter V60 dengan suhu 92 derajat celcius.</p>
+
+            <p>Menyeduh kopi dengan metode V60 adalah seni mengekstrak karakter biji kopi secara mendalam. Untuk biji kopi Sulawesi Toraja yang memiliki body tebal dan acidity yang unik, metode manual brew ini sangat disarankan agar sensasi rasa "clean" tetap terjaga.</p>
+
+            <div class="toc-box">
+                <div class="toc-title" onclick="toggleTOC()">
+                    Daftar Isi <i class="fas fa-chevron-down" id="tocIcon"></i>
+                </div>
+                <div class="toc-list" id="tocList">
+                    <ul>
+                        <li><a href="#prep">Persiapan Alat dan Bahan</a></li>
+                        <li><a href="#ratio">Rasio Kopi dan Air yang Ideal</a></li>
+                        <li><a href="#step">Langkah-langkah Penyeduhan</a></li>
+                        <li><a href="#faq">Pertanyaan Umum (FAQ)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 id="prep">Persiapan Alat dan Bahan</h2>
+            <p>Sebelum memulai, pastikan Anda menyiapkan dripper V60, kertas filter yang sudah dibilas, timbangan digital, dan biji kopi Toraja fresh roasted dari Phocinky. Gunakan gilingan medium-fine.</p>
+
+            <div class="baca-juga">
+                BACA JUGA: <a href="blog.html">Mengenal Perbedaan Robusta dan Arabika untuk Pemula</a>
+            </div>
+
+            <h2 id="ratio">Rasio Kopi dan Air yang Ideal</h2>
+            <p>Kami merekomendasikan rasio 1:15. Artinya, untuk 15 gram kopi, Anda membutuhkan 225ml air mineral berkualitas.</p>
+
+            <blockquote>
+                "Kopi yang baik dimulai dari air yang bersih dan hati yang tenang saat menuang." - Head Roaster Phocinky
+            </blockquote>
+
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200" class="main-article-img" alt="Biji Kopi Toraja">
+            <p class="img-caption">Biji kopi Sulawesi Toraja pilihan yang siap untuk digiling.</p>
+
+            <h2 id="step">Langkah-langkah Penyeduhan</h2>
+            <p>Lakukan proses blooming selama 30 detik dengan menuangkan air sebanyak dua kali berat kopi. Hal ini berfungsi untuk membuang gas CO2 agar rasa kopi tidak terlalu asam menusuk.</p>
+
+            <div class="faq-section" id="faq">
+                <h3 class="mb-4">FAQ (Sering Ditanyakan)</h3>
+                <div class="mb-3">
+                    <strong>Q: Berapa suhu air terbaik untuk V60?</strong><br>
+                    <span>A: Antara 90-94 derajat Celcius tergantung profil sangrai kopi.</span>
+                </div>
+                <div class="mb-0">
+                    <strong>Q: Berapa lama total waktu seduh?</strong><br>
+                    <span>A: Idealnya antara 2 menit hingga 3 menit.</span>
+                </div>
+            </div>
+
+                <div class="author-box">
+                    <img src="https://i.pravatar.cc/150?u=phocinky" class="author-img" alt="Penulis">
+                    <div>
+                        <h5 class="mb-1">Andi Pratama</h5>
+                        <p class="text-muted small mb-0">Barista & Coffee Enthusiast di Phocinky. Memiliki obsesi pada teknik manual brew dan sejarah kopi nusantara.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="small fw-bold text-muted mb-3 text-uppercase">Bagikan Artikel Ini</p>
+                    <div class="share-btn-container justify-content-center">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=URL_ANDA" target="_blank" class="share-btn share-fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?text=JUDUL_ARTIKEL&url=URL_ANDA" target="_blank" class="share-btn share-tw"><i class="fab fa-twitter"></i></a>
+                        <a href="https://api.whatsapp.com/send?text=Baca artikel ini: URL_ANDA" target="_blank" class="share-btn share-wa"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <hr>
+
+               <div class="mt-5">
+    <h4 class="mb-4">Artikel Terkait Lainnya</h4>
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <a href="a2.html" class="text-decoration-none text-dark">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600"
+                     class="img-fluid rounded mb-2 img-43"
+                     alt="Rel1">
+                <h6 class="fw-bold">Mengenal Karakter Biji Kopi Sulawesi Toraja</h6>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="a4.html" class="text-decoration-none text-dark">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800"
+                     class="img-fluid rounded mb-2 img-43"
+                     alt="Rel2">
+                <h6 class="fw-bold">Beda Espresso vs Americano</h6>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="a5.html" class="text-decoration-none text-dark">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800"
+                     class="img-fluid rounded mb-2 img-43"
+                     alt="Rel3">
+                <h6 class="fw-bold">Cara Membuat Cold Brew Segar di Rumah</h6>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .img-43 {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+.img-43 {
+    transition: transform .4s ease;
+}
+
+a:hover .img-43 {
+    transform: scale(1.05);
+}
+
+</style>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-lg-start footer-phocinky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Phocinky</h5>
+                <p>
+                    We deliver the best coffee experience from the farm to your cup.
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Help Center</h5>
+                <ul class="list-unstyled">
+                     <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="team.html">Terms & Conditions</a></li>
+                        <li><a href="explore.html">Buy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Our Partner</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Toffin Indonesia</a></li>
+                    <li><a href="#">Farmers Association</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li><a href="mailto:support@phocinky.com">support@phocinky.com</a></li>
+                    <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
+                    <li class="mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3 copyright">
+        © 2024 Phocinky Coffee. All rights reserved.
+    </div>
+</footer>
+
+<style>
+    .footer-phocinky {
+    background-color: #15291e;
+    color: #aaa;
+    padding: 60px 0 0;
+    font-size: .9rem;
+}
+
+.footer-phocinky h5 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-phocinky a {
+    color: #aaa;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color .3s;
+}
+
+.footer-phocinky a:hover {
+    color: #e89f43;
+}
+
+.footer-phocinky i {
+    font-size: 1.2rem;
+}
+
+.footer-phocinky .copyright {
+    background-color: rgba(0,0,0,.2);
+    margin-top: 30px;
+}
+
+</style>
+
+    <div class="fab-container">
+        <a href="#" id="scrollTop" class="btn-fab"><i class="fas fa-arrow-up"></i></a>
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn-fab" style="background: #25d366;"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <script>
+        // Toggle Daftar Isi
+        function toggleTOC() {
+            const list = document.getElementById('tocList');
+            const icon = document.getElementById('tocIcon');
+            if (list.style.display === "block") {
+                list.style.display = "none";
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                list.style.display = "block";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+
+        // Scroll to Top Logic
+        window.onscroll = function() {
+            const btn = document.getElementById("scrollTop");
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
