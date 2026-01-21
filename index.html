@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Phocinky Coffee - We Are Human & Coffee. Menyediakan biji kopi terbaik dari Toraja, Sulawesi. Hand roasted to order dan dikirim segar untuk Anda.">
+    <meta name="description" content="Phocinky Coffee - Menyediakan biji kopi terbaik dari Toraja, Sulawesi. Hand roasted to order dan dikirim segar. We Are Human & Coffee.">
     <meta name="keywords" content="kopi, coffee beans, toraja coffee, house blend, single origin, coffee shop indonesia">
     <meta name="author" content="Phocinky Coffee">
     <meta name="robots" content="index, follow">
+    
     <meta property="og:title" content="Phocinky - We Are Human & Coffee">
     <meta property="og:description" content="Rasakan kenikmatan kopi Toraja asli. Sealed for freshness.">
-    <meta property="og:image" content="path/to/hero-image.jpg">
+    <meta property="og:image" content="img/1.avif">
     <meta name="theme-color" content="#1e392a">
     
     <title>Phocinky - We Are Human & Coffee | Premium Coffee Beans</title>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap">
 
     <style>
-        /* --- CUSTOM CSS VARIABLES & GLOBAL STYLES --- */
+        /* --- GLOBAL & VARIABLES --- */
         :root {
-            --primary-green: #1e392a; /* Warna Hijau Tua dari Gambar */
-            --secondary-beige: #f5ebd6; /* Warna Cream/Beige dari Gambar */
-            --accent-orange: #e89f43; /* Warna Tombol/Aksen */
+            --primary-green: #1e392a;
+            --secondary-beige: #f5ebd6;
+            --accent-orange: #e89f43;
             --text-light: #ffffff;
             --text-dark: #2c2c2c;
         }
@@ -39,32 +41,35 @@
         body {
             font-family: 'Lato', sans-serif;
             overflow-x: hidden;
+            color: var(--text-dark);
+            background-color: #fff;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
         }
 
-        /* Helper Classes for Colors */
+        /* Optimization Helpers */
         .bg-primary-green { background-color: var(--primary-green); color: var(--text-light); }
         .bg-secondary-beige { background-color: var(--secondary-beige); color: var(--text-dark); }
         .text-accent { color: var(--accent-orange); }
         .text-green { color: var(--primary-green); }
 
-        /* Buttons */
+        /* Buttons - ACCESSIBILITY FIX: Text color darkened for contrast on orange */
         .btn-custom {
             background-color: var(--accent-orange);
-            color: #fff;
+            color: #1a1a1a; /* Fix Contrast Ratio > 4.5:1 */
             padding: 12px 30px;
-            border-radius: 0; /* Boxy look sesuai gambar */
+            border-radius: 0;
             text-transform: uppercase;
             font-weight: 700;
-            border: none;
-            transition: all 0.3s;
+            border: 2px solid var(--accent-orange);
+            transition: all 0.3s ease;
         }
         .btn-custom:hover {
-            background-color: #c7832f;
-            color: #fff;
+            background-color: #d68b35;
+            color: #000;
+            border-color: #d68b35;
             transform: translateY(-2px);
         }
 
@@ -72,7 +77,7 @@
         .navbar {
             padding-top: 20px;
             padding-bottom: 20px;
-            transition: all 0.3s;
+            transition: background-color 0.3s ease, padding 0.3s ease;
         }
         .navbar-brand {
             font-family: 'Playfair Display', serif;
@@ -81,11 +86,12 @@
             color: white !important;
         }
         .nav-link {
-            color: rgba(255,255,255,0.8) !important;
-            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 0.95rem;
             margin: 0 10px;
+            font-weight: 400;
         }
-        .nav-link:hover {
+        .nav-link:hover, .nav-link:focus {
             color: var(--accent-orange) !important;
         }
 
@@ -94,9 +100,10 @@
             background-color: var(--primary-green);
             min-height: 100vh;
             padding-top: 100px;
-            position: relative;
+            padding-bottom: 50px;
             display: flex;
             align-items: center;
+            position: relative;
         }
         .hero-title {
             font-size: 4rem;
@@ -104,63 +111,65 @@
             margin-bottom: 20px;
         }
         .hero-subtitle {
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.6;
-            opacity: 0.8;
-            max-width: 400px;
+            opacity: 0.9;
+            max-width: 450px;
             margin-bottom: 30px;
         }
+        
+        /* Image Optimization Classes */
         .coffee-bag-wrapper {
             position: relative;
             z-index: 2;
+            display: flex;
+            justify-content: center;
         }
         .coffee-bag-img {
             max-width: 100%;
             height: auto;
-            transform: rotate(-5deg); /* Sedikit miring seperti gambar */
+            transform: rotate(-5deg);
             filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.5));
+            border-radius: 12px;
+            /* Performance: Hinting browser */
+            content-visibility: auto; 
+        }
+
+        /* Product Float Card */
+        .hero-product-card {
+            width: 260px; 
+            background-color: var(--secondary-beige);
+            z-index: 3;
         }
         
-        /* Floating Elements Decoration (Panah/Tulisan melayang) */
-        .floating-feature {
-            position: absolute;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            padding: 10px 20px;
-            border-radius: 30px;
-            color: white;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        /* --- MARQUEE STRIP --- */
+        /* --- MARQUEE --- */
         .marquee-strip {
             background-color: var(--secondary-beige);
-            padding: 10px 0;
+            padding: 12px 0;
             overflow: hidden;
             white-space: nowrap;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #e0d0b0;
         }
         .marquee-content {
             display: inline-block;
+            will-change: transform;
             animation: marquee 20s linear infinite;
         }
         .marquee-item {
             display: inline-block;
             margin: 0 30px;
-            font-weight: bold;
+            font-weight: 700;
             color: var(--primary-green);
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* --- FEATURES (Best Stamp) --- */
+        /* --- FEATURES --- */
         .features-section {
             background-color: var(--primary-green);
             padding: 80px 0;
@@ -175,13 +184,14 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--primary-green);
         }
 
-        /* --- ABOUT (Split) --- */
+        /* --- SPLIT / ABOUT --- */
         .split-section {
             background-color: var(--primary-green);
+            overflow: hidden;
         }
         .split-img {
             width: 100%;
@@ -196,14 +206,16 @@
             justify-content: center;
         }
 
-        /* --- EDUCATIONAL (Difference) --- */
+        /* --- EDUCATIONAL --- */
         .educational-section {
             background-color: var(--secondary-beige);
             padding: 80px 0;
             color: var(--text-dark);
         }
+        .arrow-icon { transform: rotate(90deg); opacity: .6; }
+        .info-icon { margin-right: 15px; flex-shrink: 0; }
 
-        /* --- PRODUCTS (Best Sellers) --- */
+        /* --- PRODUCTS --- */
         .products-section {
             background-color: var(--primary-green);
             padding: 80px 0;
@@ -213,50 +225,52 @@
             border: none;
             text-align: center;
             transition: transform 0.3s;
+            height: 100%;
         }
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
+        .product-card:hover { transform: translateY(-8px); }
         .product-img-wrapper {
-            background-color: #fff; /* Atau transparan */
+            background-color: #fff;
             padding: 20px;
             margin-bottom: 15px;
-            position: relative; /* Untuk shadow buatan jika perlu */
+            border-radius: 8px;
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
         }
         .product-img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
         }
+        .product-card:hover .product-img { transform: scale(1.05); }
+        .product-badge { position: absolute; top: 12px; left: 12px; z-index: 2; }
 
-        /* --- NEWSLETTER/OFFER --- */
+        /* --- OFFER --- */
         .offer-section {
             background-color: var(--primary-green);
             color: white;
             padding: 80px 0;
         }
+        .offer-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
         /* --- FOOTER --- */
         footer {
             background-color: #15291e;
-            color: #aaa;
-            padding: 60px 0 20px;
+            color: #b0b0b0;
+            padding: 60px 0 0;
             font-size: 0.9rem;
         }
-        footer h5 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        footer a {
-            color: #aaa;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-        footer a:hover {
-            color: var(--accent-orange);
-        }
+        footer h5 { color: white; margin-bottom: 20px; font-size: 1.1rem; letter-spacing: 0.5px; }
+        footer a { color: #b0b0b0; text-decoration: none; display: block; margin-bottom: 12px; transition: color 0.2s; }
+        footer a:hover { color: var(--accent-orange); }
+        .social-link { font-size: 1.2rem; margin-right: 15px; display: inline-block; }
 
-        /* --- FAB (Floating Action Buttons) --- */
+        /* --- FAB --- */
         .fab-container {
             position: fixed;
             bottom: 30px;
@@ -264,7 +278,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 1000;
+            z-index: 1050;
         }
         .fab-btn {
             width: 50px;
@@ -276,79 +290,52 @@
             color: white;
             font-size: 1.5rem;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .fab-btn:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-        .fab-wa {
-            background-color: #25D366;
-        }
+        .fab-btn:hover { transform: scale(1.1); color: white; }
+        .fab-wa { background-color: #25D366; }
         .fab-top {
             background-color: var(--accent-orange);
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            transform: translateY(20px);
         }
-        .fab-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        .fab-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
         /* --- MEDIA QUERIES --- */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; text-align: center; }
+        @media (max-width: 991px) {
+            .hero-title { font-size: 3rem; text-align: center; }
             .hero-subtitle { text-align: center; margin: 0 auto 30px; }
-            .hero-section { padding-top: 120px; text-align: center; }
-            .split-content { padding: 40px 20px; }
+            .hero-section { text-align: center; padding-top: 120px; }
+            .coffee-bag-wrapper { margin-top: 40px; }
+            .hero-product-card { position: static !important; width: 100% !important; margin-top: 20px; max-width: 350px; margin-left: auto; margin-right: auto; }
+            .split-img { min-height: 300px; }
+            .split-content { padding: 50px 20px; }
             .feature-item { margin-bottom: 40px; }
-            .nav-link { text-align: center; padding: 10px 0; }
+            .navbar-collapse { background: var(--primary-green); padding: 20px; border-radius: 0 0 10px 10px; }
         }
-        /* ============================= */
-/* MOBILE ANTI GOYANG FIX */
-/* ============================= */
+        
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .coffee-bag-img { transform: none; width: 80%; }
+        }
 
-/* Kunci horizontal scroll */
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* Marquee aman di mobile */
-.marquee-strip {
-    overflow: hidden;
-    position: relative;
-}
-
-.marquee-content {
-    will-change: transform;
-}
-
-/* Hero image & absolute card fix */
-@media (max-width: 768px) {
-    .coffee-bag-img {
-        transform: none;
-        max-width: 100%;
-    }
-
-    .coffee-bag-wrapper .card {
-        position: static !important;
-        width: 100% !important;
-        margin-top: 20px;
-    }
-}
-.card button:focus-visible {
-    outline: 3px solid #000;
-    outline-offset: 3px;
-}
-
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-content { animation: none; }
+            *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+        
+        /* Focus Visibility for Accessibility */
+        :focus-visible {
+            outline: 3px solid var(--accent-orange);
+            outline-offset: 3px;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar" aria-label="Main navigation">
         <div class="container">
             <a class="navbar-brand" href="#">Ph<span class="text-accent">o</span>cinky</a>
             <button class="navbar-toggler bg-secondary-beige" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -368,160 +355,97 @@ html, body {
         </div>
     </nav>
 
-    <header id="hero"
-        class="hero-section"
-        role="banner"
-        aria-labelledby="hero-title"
-        aria-describedby="hero-desc">
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="badge bg-secondary-beige text-dark mb-3 px-3 py-2 fw-bold">
+                        Coffee Shop
+                    </span>
 
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="hero-title text-light">
+                        WE ARE,<br>HUMAN &amp;<br>COFFEE
+                    </h1>
 
-                <span class="badge bg-secondary-beige text-dark mb-3 px-3 py-2">
-                    Coffee Shop
-                </span>
+                    <p class="hero-subtitle text-light">
+                        If you're always thinking about the next cup, fix it with code
+                        <strong>SANSO984</strong>. Our coffee products are guaranteed 100% natural.
+                    </p>
 
-                <h1 id="hero-title" class="hero-title text-light">
-                    WE ARE,<br>
-                    HUMAN &amp;<br>
-                    COFFEE
-                </h1>
-
-                <p id="hero-desc" class="hero-subtitle text-light">
-                    If you're always thinking about the next cup, fix it with code
-                    <strong>SANSO984</strong>. Our coffee products are guaranteed to be
-                    100% natural from gardening to processing into coffee beans.
-                </p>
-
-                <a href="explore.html"
-                   class="btn btn-custom shadow-lg"
-                   role="button"
-                   aria-label="Explore coffee products and stories">
-                    Explore More
-                </a>
-
-                <style>
-                    .btn-custom {
-    background-color: #f4a261;
-    color: #1a1a1a;
-    border: none;
-}
-
-.btn-custom:hover,
-.btn-custom:focus {
-    background-color: #e38b3c;
-    color: #1a1a1a;
-}
-
-                </style>
-
-            </div>
+                    <a href="explore.html" class="btn btn-custom shadow-lg">
+                        Explore More
+                    </a>
+                </div>
 
                 <div class="col-lg-6 text-center position-relative">
                     <div class="coffee-bag-wrapper">
-                        <img
-  src="img/1.avif"
-  srcset="img/1.avif 480w, img/1.avif 768w, img/1.avif 1200w"
-  sizes="(max-width: 768px) 90vw, 500px"
-  width="500"
-  height="500"
-  alt="Toffin Coffee Beans Speciality Sulawesi Toraja"
-  class="coffee-bag-img rounded"
-  loading="lazy"
-  decoding="async"
->
-
-<style>
-    .coffee-bag-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-
-  /* Gradient bawah TANPA mask-image */
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 80%, #fff 100%);
-}
-
-</style>
+                        <img 
+                            src="img/1.avif"
+                            srcset="img/1.avif 480w, img/1.avif 768w, img/1.avif 1200w"
+                            sizes="(max-width: 768px) 90vw, 500px"
+                            width="500"
+                            height="500"
+                            alt="Toffin Coffee Beans Speciality Sulawesi Toraja Packaging"
+                            class="coffee-bag-img"
+                            loading="eager" 
+                            fetchpriority="high"
+                            decoding="async"
+                        >
                         
-                        <div class="card position-absolute bottom-0 end-0 p-3 shadow-lg border-0"
-     style="width: 250px; background-color: var(--secondary-beige);"
-     role="region"
-     aria-labelledby="product-title"
-     aria-describedby="product-desc">
-
-    <span class="badge bg-dark mb-2 w-25">
-        100% Arabika
-    </span>
-
-    <h5 id="product-title" class="fw-bold m-0 text-dark">
-        Toffin Coffee Beans
-    </h5>
-
-    <p id="product-desc" class="small text-muted mb-3">
-        Speciality Sulawesi Toraja
-    </p>
-
-    <button
-        type="button"
-        class="btn btn-sm btn-outline-dark w-100"
-        aria-label="Order Toffin Coffee Beans">
-        Order Now
-    </button>
-</div>
+                        <div class="card position-absolute bottom-0 end-0 p-3 shadow-lg border-0 hero-product-card rounded">
+                            <span class="badge bg-dark mb-2 w-50">100% Arabika</span>
+                            <h2 class="h5 fw-bold m-0 text-dark">Toffin Coffee Beans</h2>
+                            <p class="small text-muted mb-3">Speciality Sulawesi Toraja</p>
+                            <button type="button" class="btn btn-sm btn-outline-dark w-100 fw-bold">
+                                Order Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="marquee-strip">
+    <div class="marquee-strip" role="complementary" aria-label="Brand highlights">
         <div class="marquee-content">
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
-            <span class="marquee-item"><i class="fas fa-star"></i> Coffee Shop</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Coffee Shop</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Premium Beans</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Hand Roasted</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Fresh Brew</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Coffee Shop</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Premium Beans</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Hand Roasted</span>
+            <span class="marquee-item"><i class="fas fa-star" aria-hidden="true"></i> Fresh Brew</span>
         </div>
     </div>
 
     <section id="service" class="features-section">
         <div class="container">
             <h2 class="text-center text-light mb-2">LOOK FOR BEST STAMP</h2>
-           <p
-  class="text-center text-white-50 mb-5"
-  style="max-width: 600px; margin: 0 auto;"
-  aria-label="Deskripsi tentang kesegaran kopi dari pemanggangan hingga penyeduhan">
-  Coffee that goes from the roaster to the brewed cup in the shortest amount of time
-  is the freshest, best tasting coffee—period.
-</p>
-
+            <p class="text-center text-white-50 mb-5 mx-auto" style="max-width: 600px;">
+                Coffee that goes from the roaster to the brewed cup in the shortest amount of time
+                is the freshest, best tasting coffee—period.
+            </p>
 
             <div class="row mt-5">
                 <div class="col-md-4 feature-item">
                     <div class="feature-icon-circle">
-                        <i class="fas fa-hand-holding-heart"></i>
+                        <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
                     </div>
-                    <h5 class="text-light text-uppercase">Hand Roasted To Order</h5>
+                    <h3 class="h5 text-light text-uppercase">Hand Roasted To Order</h3>
                 </div>
                 <div class="col-md-4 feature-item">
                     <div class="feature-icon-circle">
-                        <i class="fas fa-box-open"></i>
+                        <i class="fas fa-box-open" aria-hidden="true"></i>
                     </div>
-                    <h5 class="text-light text-uppercase">Sealed For Freshness</h5>
-                    <p class="small text-white-50">Sealed after roasting and marked with the Freshness Stamp</p>
+                    <h3 class="h5 text-light text-uppercase">Sealed For Freshness</h3>
+                    <p class="small text-white-50 px-4">Sealed after roasting and marked with the Freshness Stamp</p>
                 </div>
                 <div class="col-md-4 feature-item">
                     <div class="feature-icon-circle">
-                        <i class="fas fa-truck-fast"></i>
+                        <i class="fas fa-truck-fast" aria-hidden="true"></i>
                     </div>
-                    <h5 class="text-light text-uppercase">Delivered Fresh To You</h5>
+                    <h3 class="h5 text-light text-uppercase">Delivered Fresh To You</h3>
                 </div>
             </div>
         </div>
@@ -531,220 +455,121 @@ html, body {
         <div class="container-fluid p-0">
             <div class="row g-0">
                 <div class="col-lg-6">
-                    <img src="img/tetng.avif" alt="Woman enjoying coffee" class="split-img" loading="lazy">
+                    <img src="img/tetng.avif" alt="Woman enjoying fresh coffee aroma" class="split-img" loading="lazy" width="800" height="600">
                 </div>
                 <div class="col-lg-6 split-content">
                     <h2 class="text-light display-5 mb-4">EITHER YOU<br>OR COFFEE?</h2>
                     <p class="text-white-50 mb-4">
-                        Single origin coffee means a single known geographical origin. Often the coffee is labeled, but a single farm or producer. It's coffee in its purest form.
+                        Single origin coffee means a single known geographical origin. Often the coffee is labeled by a single farm or producer. It's coffee in its purest form.
                     </p>
-                    <a href="blog.html" class="btn btn-custom align-self-start">Read More</a>
+                    <div>
+                        <a href="blog.html" class="btn btn-custom">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
 
     <section class="educational-section">
-  <div class="container">
-    <div class="row align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h2 class="display-6 fw-bold mb-3">
+                        DIFFERENCE<br>HOUSE BLEND &amp;<br>SINGLE ORIGIN
+                    </h2>
+                    <div class="d-flex align-items-center mt-4">
+                        <img src="img/arrow-down.avif" width="40" height="40" alt="" class="arrow-icon" loading="lazy">
+                        <a href="blog.html" class="btn btn-dark ms-3 rounded-0 px-4 py-2">Read More</a>
+                    </div>
+                </div>
 
-      <div class="col-lg-5 mb-4 mb-lg-0">
-        <h2 class="display-6 fw-bold mb-3">
-          DIFFERENCE<br>HOUSE BLEND &<br>SINGLE ORIGIN
-        </h2>
-
-        <div class="d-flex align-items-center mt-4">
-          <img
-            src="img/arrow-down.avif"
-            width="40"
-            height="40"
-            alt=""
-            class="arrow-icon"
-            loading="lazy"
-            decoding="async"
-          >
-          <a href="blog.html" class="btn btn-dark ms-3 rounded-0 px-4">
-            Read More
-          </a>
+                <div class="col-lg-7">
+                    <div class="d-flex mb-4">
+                        <img src="img/icon-flavor.avif" width="32" height="32" alt="" class="info-icon" loading="lazy">
+                        <div>
+                            <h3 class="h5 fw-bold">FLAVOR</h3>
+                            <p class="small text-muted mb-0">
+                                The most prominent difference between single origin and blends is their flavor. Single origin coffee is usually brighter, featuring floral or fruity notes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <img src="img/icon-trace.avif" width="32" height="32" alt="" class="info-icon" loading="lazy">
+                        <div>
+                            <h3 class="h5 fw-bold">TRACEABILITY</h3>
+                            <p class="small text-muted mb-0">
+                                With blends, tracing origins is near impossible and often ambiguous. At most, roasters will include the country the blend is from.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-lg-7">
-        <div class="d-flex mb-4">
-          <img
-            src="img/icon-flavor.avif"
-            width="32"
-            height="32"
-            alt=""
-            class="info-icon"
-            loading="lazy"
-            decoding="async"
-          >
-          <div>
-            <h5 class="fw-bold">FLAVOR</h5>
-            <p class="small text-muted">
-              The most prominent difference between single origin and blends is their flavor. Single origin coffee is usually brighter, featuring floral or fruity notes.
-            </p>
-          </div>
-        </div>
-
-        <div class="d-flex">
-          <img
-            src="img/icon-trace.avif"
-            width="32"
-            height="32"
-            alt=""
-            class="info-icon"
-            loading="lazy"
-            decoding="async"
-          >
-          <div>
-            <h5 class="fw-bold">TRACEABILITY</h5>
-            <p class="small text-muted">
-              With blends, tracing origins is near impossible and often ambiguous. At most, roasters will include the country the blend is from.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-    .arrow-icon {
-  transform: rotate(90deg);
-  opacity: .5;
-  display: block;
-}
-
-.info-icon {
-  margin-right: 12px;
-  flex-shrink: 0;
-  display: block;
-}
-
-</style>
+    </section>
 
     <section id="products" class="products-section">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="text-light">BEST SELLERS</h2>
-                <p class="text-white-50 small">Our coffee is roasted with obsession. Taste with responsibilty.</p>
+                <p class="text-white-50 small">Our coffee is roasted with obsession. Taste with responsibility.</p>
             </div>
 
             <div class="row">
-  <!-- PRODUCT 1 -->
-  <div class="col-md-4 mb-4">
-    <div class="product-card">
-      <div class="product-img-wrapper">
-        <img
-          src="img/ko1.jpg"
-          srcset="img/ko1.jpg 480w, img/ko1.jpg 768w"
-          sizes="(max-width: 768px) 90vw, 300px"
-          width="300"
-          height="300"
-          alt="Toffin Coffee Beans Speciality Sulawesi Toraja"
-          class="product-img"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-      <h5 class="text-light mt-3">Speciality Sulawesi Toraja</h5>
-      <p class="text-accent fw-bold">IDR 85.000</p>
-      <button class="btn btn-sm btn-outline-light">Add to Cart</button>
-    </div>
-  </div>
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="img/ko1.jpg" srcset="img/ko1.jpg 480w, img/ko1.jpg 768w" sizes="(max-width: 768px) 90vw, 350px" width="350" height="350" alt="Speciality Sulawesi Toraja Coffee Pack" class="product-img" loading="lazy">
+                        </div>
+                        <h3 class="h5 text-light mt-3">Speciality Sulawesi Toraja</h3>
+                        <p class="text-accent fw-bold">IDR 85.000</p>
+                        <button class="btn btn-sm btn-outline-light px-4">Add to Cart</button>
+                    </div>
+                </div>
 
-  <!-- PRODUCT 2 -->
-  <div class="col-md-4 mb-4">
-    <div class="product-card">
-      <div class="product-img-wrapper position-relative">
-        <span class="badge bg-warning text-dark product-badge">Best Seller</span>
-        <img
-          src="img/ko2.avif"
-          srcset="img/ko2.avif 480w, img/ko2.avif 768w"
-          sizes="(max-width: 768px) 90vw, 300px"
-          width="300"
-          height="300"
-          alt="Kahwa Coffee Espresso Blend"
-          class="product-img"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-      <h5 class="text-light mt-3">Kahwa Coffee Espresso Blend</h5>
-      <p class="text-accent fw-bold">IDR 95.000</p>
-      <button class="btn btn-sm btn-outline-light">Add to Cart</button>
-    </div>
-  </div>
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <span class="badge bg-warning text-dark product-badge shadow-sm">Best Seller</span>
+                            <img src="img/ko2.avif" srcset="img/ko2.avif 480w, img/ko2.avif 768w" sizes="(max-width: 768px) 90vw, 350px" width="350" height="350" alt="Kahwa Coffee Espresso Blend Pack" class="product-img" loading="lazy">
+                        </div>
+                        <h3 class="h5 text-light mt-3">Kahwa Coffee Espresso Blend</h3>
+                        <p class="text-accent fw-bold">IDR 95.000</p>
+                        <button class="btn btn-sm btn-outline-light px-4">Add to Cart</button>
+                    </div>
+                </div>
 
-  <!-- PRODUCT 3 -->
-  <div class="col-md-4 mb-4">
-    <div class="product-card">
-      <div class="product-img-wrapper">
-        <img
-          src="img/ko3.avif"
-          srcset="img/ko3.avif 480w, img/ko3.avif 768w"
-          sizes="(max-width: 768px) 90vw, 300px"
-          width="300"
-          height="300"
-          alt="Velvet Sulawesi Toraja Coffee Beans"
-          class="product-img"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-      <h5 class="text-light mt-3">Velvet Sulawesi Toraja</h5>
-      <p class="text-accent fw-bold">IDR 90.000</p>
-      <button class="btn btn-sm btn-outline-light">Add to Cart</button>
-    </div>
-  </div>
-</div>
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="img/ko3.avif" srcset="img/ko3.avif 480w, img/ko3.avif 768w" sizes="(max-width: 768px) 90vw, 350px" width="350" height="350" alt="Velvet Sulawesi Toraja Coffee Pack" class="product-img" loading="lazy">
+                        </div>
+                        <h3 class="h5 text-light mt-3">Velvet Sulawesi Toraja</h3>
+                        <p class="text-accent fw-bold">IDR 90.000</p>
+                        <button class="btn btn-sm btn-outline-light px-4">Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <style>
-        .product-img-wrapper {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* CLS = 0 */
-  overflow: hidden;
-}
-
-.product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.product-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-}
-@media (max-width: 768px) {
-  .marquee-content {
-    animation: none;
-  }
-}
-
-    </style>
-
     <section class="offer-section">
         <div class="container">
-            <div class="row align-items-center bg-dark-green rounded p-4" style="background: rgba(0,0,0,0.2);">
-                <div class="col-md-6">
-                    <h2 class="mb-3">NEVER MISS<br>AN OFFER</h2>
-                    <p class="text-white-50 mb-4">Sign up for our newsletter and receive 10% off. Find company in your first order.</p>
-                    <form class="d-flex gap-2">
-                    </form>
-                </div>
-                <div class="col-md-6 mt-4 mt-md-0">
-                    <img src="img/kopi1.avif" alt="Coffee Shop Interior" class="img-fluid rounded shadow" loading="lazy">
+            <div class="offer-box rounded p-4 p-md-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="mb-3">NEVER MISS<br>AN OFFER</h2>
+                        <p class="text-white-50 mb-4">Sign up for our newsletter and receive 10% off. Find company in your first order.</p>
+                        
+                        <form class="d-flex gap-2" action="#" method="POST">
+                            <label for="email-newsletter" class="visually-hidden">Email Address</label>
+                            <input type="email" id="email-newsletter" class="form-control" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-custom text-nowrap">Sign Up</button>
+                        </form>
+
+                    </div>
+                    <div class="col-md-6 mt-4 mt-md-0">
+                        <img src="img/kopi1.avif" width="600" height="400" alt="Cozy Coffee Shop Interior" class="img-fluid rounded shadow" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
@@ -753,116 +578,93 @@ html, body {
     <footer class="text-center text-lg-start">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase">Phocinky</h5>
-                    <p>
-                       We deliver the best coffee experience from the farm to your cup.
-                    </p>
+                    <p>We deliver the best coffee experience from the farm to your cup. Authentic taste of Sulawesi.</p>
                 </div>
 
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase">Help Center</h5>
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled">
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="team.html">Terms & Conditions</a></li>
-                        <li><a href="explore.html">Buy</a></li>
+                        <li><a href="explore.html">How to Buy</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase">Our Partner</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#!">Toffin Indonesia</a></li>
-                        <li><a href="#!">Farmers Association</a></li>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Toffin Indonesia</a></li>
+                        <li><a href="#">Farmers Association</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase">Contact</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#!">support@phocinky.com</a></li>
-                        <li><a href="#!">+62 812 3456 7890</a></li>
-                        <li>
-                            <div class="mt-3" aria-label="Social media links">
-    <a href="https://www.instagram.com/USERNAME"
-       class="d-inline me-2 social-link"
-       aria-label="Instagram"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-instagram" aria-hidden="true"></i>
-    </a>
-
-    <a href="https://www.facebook.com/USERNAME"
-       class="d-inline me-2 social-link"
-       aria-label="Facebook"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-facebook" aria-hidden="true"></i>
-    </a>
-
-    <a href="https://twitter.com/USERNAME"
-       class="d-inline social-link"
-       aria-label="Twitter"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-twitter" aria-hidden="true"></i>
-    </a>
-</div>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:support@phocinky.com">support@phocinky.com</a></li>
+                        <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
+                        <li class="mt-3">
+                            <a href="#" class="d-inline me-2 social-link" aria-label="Visit our Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="d-inline me-2 social-link" aria-label="Visit our Facebook">
+                                <i class="fab fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="d-inline social-link" aria-label="Visit our Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024 Phocinky Coffee. All rights reserved.
+        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.3); color: #888;">
+            &copy; 2024 Phocinky Coffee. All rights reserved.
         </div>
     </footer>
 
     <div class="fab-container">
-        <a href="#" id="scrollTopBtn" class="fab-btn fab-top" title="Kembali ke atas" aria-label="Scroll to top">
-            <i class="fas fa-arrow-up"></i>
+        <a href="#" id="scrollTopBtn" class="fab-btn fab-top" aria-label="Scroll back to top">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
         </a>
-        <a href="https://wa.me/6281234567890" target="_blank" class="fab-btn fab-wa" title="Hubungi kami di WhatsApp" aria-label="Chat WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/6281234567890" target="_blank" class="fab-btn fab-wa" aria-label="Chat with us on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
     </div>
 
-     <script>
-        // Ambil elemen tombol
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-        const navbar = document.getElementById("navbar");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scrollTopBtn = document.getElementById("scrollTopBtn");
+            const navbar = document.getElementById("navbar");
 
-        // Deteksi Scroll
-        window.onscroll = function() {scrollFunction()};
+            // Throttled Scroll Event (Performance)
+            let isScrolling;
+            window.addEventListener('scroll', function ( event ) {
+                window.clearTimeout( isScrolling );
+                isScrolling = setTimeout(function() {
+                    if (window.scrollY > 300) {
+                        scrollTopBtn.classList.add("show");
+                    } else {
+                        scrollTopBtn.classList.remove("show");
+                    }
+                    if (window.scrollY > 50) {
+                        navbar.classList.add("bg-primary-green", "shadow");
+                    } else {
+                        navbar.classList.remove("bg-primary-green", "shadow");
+                    }
+                }, 66);
+            }, false);
 
-        function scrollFunction() {
-            // Logika Tombol Back to Top
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.classList.add("show");
-            } else {
-                scrollTopBtn.classList.remove("show");
-            }
-
-            // Logika Navbar Background (Transparan saat di atas, Gelap saat scroll)
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                navbar.classList.add("bg-primary-green", "shadow");
-            } else {
-                navbar.classList.remove("bg-primary-green", "shadow");
-            }
-        }
-
-        // Smooth Scroll untuk Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            scrollTopBtn.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
 </html>
